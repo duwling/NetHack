@@ -1,0 +1,292 @@
+# Don't let this nethack config be your game spoiler!
+#             ---=======-----
+# Character
+# ---------
+#options=name:
+options=male
+#options=align:lawful
+#options=align:neutral
+#options=align:chaotic
+#options=race:human
+#options=race:elf
+#options=race:dwarf
+#options=race:gnome
+options=race:!orc
+#options=role:archeologist
+#options=role:barbarian
+#options=role:caveman
+#options=role:healer
+#options=role:knight
+#options=role:monk
+#options=role:priest
+#options=role:ranger
+#options=role:rogue
+#options=role:samurai
+#options=role:tourist
+#options=role:valkyrie
+#options=role:wizard
+options=fruit:mug of mead
+options=catname:Morris
+#options=dogname:Hachi
+#options=horsename:
+#options=pettype:none
+#options=blind
+#options=nudist
+
+#         gain intrinsic (resistance)
+# Archeologist 1:speed,stealth 10:searching
+#    Barbarian 1:poison 7:speed 15:stealth
+#      Caveman 7:speed 15:warning
+#       Healer 1:poison 15:warning
+#       Knight 7:speed
+#         Monk 1:speed,sleep,see-invisible 3:poison 5:stealth 7:warning 9:searching 11:fire 13:cold 15:shock 17:teleport-ctrl
+#       Priest 10:warning 15:fire
+#       Ranger 1:searching 7:stealth 15:see-invisible
+#        Rogue 1:stealth 10:searching
+#      Samurai 1:speed 15:stealth
+#      Tourist 10:searching 20:poison
+#     Valkyrie 1:cold,stealth 7:speed
+#       Wizard 8:teleport-at-will 15:warning 17:teleport-control
+
+# Gameplay
+# --------
+options=notutorial,nolegacy,notombstone
+#options=nobones
+options=number_pad:-1 #qwertz
+bind=!:loot,v:jump
+options=autopickup,pickup_burden:unencumbered,pickup_types:$"%?+!=/(*
+
+# Interface
+# ---------
+options=showrace
+options=lit_corridor
+options=symset:Enhanced1
+options=glyph:S_tlcorn:U+256d,glyph:S_trcorn:U+256e
+options=glyph:S_brcorn:U+256f,glyph:S_blcorn:U+2570
+options=glyph:S_tlcorn_sokoban:U+256d/0-0-190,glyph:S_trcorn_sokoban:U+256e/0-0-190
+options=glyph:S_brcorn_sokoban:U+256f/0-0-190,glyph:S_blcorn_sokoban:U+2570/0-0-190
+options=glyph:S_tlcorn_gehennom:U+256d/190-0-0,glyph:S_trcorn_gehennom:U+256e/190-0-0
+options=glyph:S_brcorn_gehennom:U+256f/190-0-0,glyph:S_blcorn_gehennom:U+2570/190-0-0
+options=glyph:S_tlcorn_knox:U+256d/150-75-0,glyph:S_trcorn_knox:U+256e/150-75-0
+options=glyph:S_brcorn_knox:U+256f/150-75-0,glyph:S_blcorn_knox:U+2570/150-75-0
+options=glyph:S_tlcorn_mines:U+256d/113-126-142,glyph:S_trcorn_mines:U+256e/113-126-142
+options=glyph:S_brcorn_mines:U+256f/113-126-142,glyph:S_blcorn_mines:U+2570/113-126-142
+options=glyph:S_darkroom:U+00b7/50-40-30,glyph:S_room:U+00b7/100-90-80
+options=glyph:S_corr:U+0023/60-50-40,glyph:S_litcorr:U+0023/110-100-90
+options=glyph:S_hodoor:U+007c,glyph:S_vodoor:U+2212
+options=statushilites:8
+options=hilite_status:hitpoints/<100%/green/<60%/yellow/<40%/red&blink
+options=hilite_status:hunger/red
+options=hilite_status:condition/major_troubles/red
+options=hilite_status:characteristics/up/cyan/down/red
+options=hilite_status:experience-level/up/cyan/down/red
+options=menucolors,menu_headings:none
+
+# Chance of producing a djinni, granting a wish.
+menucolor="[a2-9].*(smoky potion|called.*djinn)"=lightmagenta
+
+# (semi-)permanent engraving
+menucolor="a wand.*(fire|lightning)"=no-color&bold
+menucolor="(diamond|emerald|ruby|saphire|topaz|steel) ring|a.*ring called.*H"=no-color&bold
+#menucolor="a.*ring.*()"=no-color&bold
+
+# Water
+menucolor="[a0-9]+ (clear|potion.*water)"=no-color&dim
+
+# Beware of cursed items.
+# Don't read the dull spellbook before sleep resistant.
+menucolor="a.*(dull spell|book called.*sleep)"=red
+#menucolor="a.*spellbook of "=red
+menucolor=" cursed|unholy"=red&dim
+
+# Don't pickup a loadstone.
+# Never put a wand of cancellation into a bag of holding! Don't nest magic bags!
+menucolor="^a.*(load(stone)?$|wand.*cancel)"=red&underline
+menucolor="^a.*bag.*(holding|tricks)|named cancel|wand called vanish"=magenta
+autopickup_exception=">gray stone"
+autopickup_exception=">load"
+autopickup_exception="<luck"
+autopickup_exception=">rock"
+# Worthless glass, named junk
+autopickup_exception=">worthless|junk"
+
+# Pickup artifacts and rare items. Name the real amulet!
+menucolor="Amulet of Yendor named"=lightmagenta
+autopickup_exception=">Amulet of Yendor"
+autopickup_exception="<Amulet of Yendor named"
+autopickup_exception="<^the "
+autopickup_exception="<amulet.*life"
+autopickup_exception="<athame"
+
+# Distinguish between vegetarian/vegan, and poisonous corpses.
+#  All veterian globs are acidic.
+#  Yellow mold is vegan, poisonous and hallucinogen.
+#  A footrice corpse can rub out an entire fort.
+#
+menucolor="corpse|glob|meat"=orange
+menucolor="globs? of (gray ooze|brown pudding|green slime)"=green
+menucolor="(lichen|mold|shrieker|fungus|jelly|blob|cube) corpse"=lightgreen
+menucolor="(kobold.*|soldier ant|bee(tle)?|[a0-9]+ snake|water moccasin|pit viper|cobra|were.*|gremlin|manes|homunculi|lemure|rabid rat|vampire bat|green dragon|guardian naga|quantum mechanic|jellyfish|salamander) corpse"=orange&dim
+menucolor="(Medusa|Chromatic Dragon|Scorpius) corpse"=orange&dim
+menucolor="yellow mold corpse"=lightgreen&dim
+menucolor="trice corpse"=yellow&dim
+autopickup_exception=">corpse|glob"
+autopickup_exception="<lichen corpse" 
+autopickup_exception="<lizard corpse" 
+autopickup_exception="<newt corpse"
+autopickup_exception="<floating eye corpse"
+autopickup_exception="<wraith corpse"
+
+# Treat
+#  Tame domestic animals (people food and corpses have a chance too).
+#  Make pets follow more closely, and train their apport.
+#  For non-orc/-caveman/-carnivore, tripe has a 1/2 chance of giving nausea,
+#   which actually cures food poisoning, but do not count on vomiting before you die.
+#
+menucolor="tripe|meatball"=brown&dim
+menucolor="apple|banana|carrot"=green&dim
+
+# Scrolls
+#  Amnesia is never useful, and hardly is punishment.
+#  Scare monster is different: use on the floor.
+#  Identify can be read regardless of beatitude.
+#  Fire and stinking cloud are strong offensive means,
+#   as taming a defensive. Fire can cure sliming.
+#  Some scrolls are very useful when cursed:
+#   reverse genocide, levelport, detect portal/traps/potions.
+#  If read while confused:
+#   Cursed destroy armor applies erodeproofing,
+#   taming increases range to within 5 squares,
+#   and food/gold detection has the same effect as if cursed.
+#   Blessed scrolls of remove curse,
+#    remove BUC identification of the entire open inventory,
+#    and randomly curse/bless items - possibly water.
+#
+menucolor="[a2-9].*(unlabeled scroll|blank paper|plain spellbook)"=no-color&dim
+menucolor="[a2-9].*scroll.*(amnesia|punish)"=black&dim
+menucolor="[a2-9].*scroll.*scare"=no-color&underline
+menucolor="[a2-9].*scroll.* id(entify)?"=cyan&dim
+menucolor="(ncursed|blessed) scroll.*remove curse|scroll.*remove.*(ncursed|blessed)"=magenta&dim
+menucolor="(ncursed|blessed) scroll.*enchant|scroll.*enchant.*(ncursed|blessed)"=lightblue
+menucolor="[a2-9].*scroll.*taming"=lightgreen
+menucolor="[a2-9].*scroll.*(cloud|fire)"=yellow
+menucolor=" cursed.*scroll.*(genocide|teleport)|scroll.*(genocide|teleport).* cursed"=red
+menucolor=" cursed.*scroll.*detect|scroll.*detect.* cursed"=red
+menucolor=" cursed.*scroll.*destroy|destroy armor cursed"=brown
+autopickup_exception=">scroll.*scare"
+
+# Potions
+#  acid and oil are different, as is water
+#  beatitude has no effect on potions dipped into, i.e. polymorph
+#  blessed
+#   see invisible and invisbility grant the intrinsics permanently
+#   enlightenment increases intelligence and wisdom by one point
+#  cursed
+#   use gain level as an escape item through the ceiling
+#   mix enlightenment with levitation to 6/10 gain level
+#
+menucolor="[a2-9].*potion.*(acid|oil)"=brown
+menucolor=" holy|blessed.*(clear|potions? .*water)"=magenta&dim
+menucolor="[a2-9].*potion.*(blindness|confusion|sleeping|paralysis)"=yellow&dim
+menucolor="[a2-9].*potion.*heal"=lightblue&dim
+menucolor="blessed.*potion.*heal"=blue
+menucolor="(ncursed|blessed).*potion.*gain.*|potion.*gain.*(ncursed|blessed)"=cyan
+menucolor="blessed.*potion.*enlightenment|potion.*enlightenment.*blessed"=cyan
+menucolor="blessed.*potion.*invisib.*|potion.*invisib.*blessed"=cyan&dim
+menucolor=" cursed.*potion.*level|potion.*level.* cursed"=red
+menucolor="[a2-9].*potion.*(polymorph|sickness|speed)"=lightmagenta&dim
+menucolor=" cursed potion.*(energy|enlightenment|levitation)|potion.*(energy|enlightenment|levitation).* cursed"=lightmagenta&dim
+autopickup_exception="<potion.*heal"
+autopickup_exception="<potion.*gain"
+#menucolor="[a2-9].*potion of "=lightmagenta
+
+# Wielded weapon
+menucolor="(wielded|weapon) in.*hand"=no-color&inverse
+# Metal armor hinders spell casting.
+menucolor="(mail|coat|helm|pot|iron|hard|power|kick|shield).*worn"=no-color&italic
+menucolor="(crystal|dragon|leather|brilliance).*worn"=no-color
+menucolor="(cloak|robe).*worn|protection.*hand"=lightgreen&dim
+menucolor=" cursed.*(worn|hand))"=red
+
+autopickup_exception=">:0)"
+autopickup_exception="> named empty"
+autopickup_exception="> nothing"
+autopickup_exception="<wand .* wish"
+autopickup_exception="<wand .* create monster"
+autopickup_exception="<wand .* tele"
+autopickup_exception="<wand .* poly"
+autopickup_exception="<wand .* fire"
+autopickup_exception="<wand .* lightning"
+autopickup_exception="<wand .* death"
+autopickup_exception=">wand .* cold$"
+
+# Useful cursed tools
+menucolor=" cursed magic marker|marker named cursed"=red
+# Cursed magic whistles act half the time like a tin whistle: wake nearby pet/monster.
+menucolor=" cursed.*whistle|whistle.* cursed"=red
+# Items where BUC status does not matter.
+menucolor=" cursed.* gem"=no-color
+menucolor=" cursed bugle"=no-color
+menucolor="picked up"=no-color
+autopickup_exception="> cursed leash"
+
+# Pickup non-empty magic markers, and the first found oil lamp.
+autopickup_exception="<magic marker"
+autopickup_exception="<lamp"
+autopickup_exception=">lantern|oil lamp|lamp called oil"
+# Lots of mirrors can get annoying.
+autopickup_exception=">mirror|looking glass"
+# Heavy tools
+autopickup_exception=">chest|box|bag|sack"
+autopickup_exception=">bell|saddle"
+autopickup_exception=">pick-axe"
+# Named exceptions
+autopickup_exception="<<"
+autopickup_exception=">>"
+# Pickup uncursed projectiles before monsters do.
+autopickup_exception="<arrow"
+autopickup_exception="<ya"
+autopickup_exception="<crossbow bolt"
+autopickup_exception="<dart"
+autopickup_exception="<shuriken"
+autopickup_exception="<throwing star"
+autopickup_exception="<dagger"
+autopickup_exception="> cursed.*(arrow|bolt|dart|shuriken|star|ya|knife|dagger)"
+# Leave scrolls, until `scare monster` is identified.
+autopickup_exception=">scroll"
+
+# Show colors
+#menucolor="white"=white
+#menucolor="dimmed white"=white&dim
+#menucolor="no-color"=no-color
+#menucolor="dimmed no-color"=no-color&dim
+#menucolor="gray"=gray
+#menucolor="dimmed gray"=gray&dim
+#menucolor="black"=black
+#menucolor="dimmed black"=black&dim
+#menucolor="cyan"=cyan
+#menucolor="dimmed cyan"=cyan&dim
+#menucolor="light-cyan"=lightcyan
+#menucolor="dimmed light-cyan"=lightcyan&dim
+#menucolor="magenta"=magenta
+#menucolor="dimmed magenta"=magenta&dim
+#menucolor="light-magenta"=lightmagenta
+#menucolor="dimmed light-magenta"=lightmagenta&dim
+#menucolor="blue"=blue
+#menucolor="dimmed blue"=blue&dim
+#menucolor="light-blue"=lightblue
+#menucolor="dimmed light-blue"=lightblue&dim
+#menucolor="brown"=brown
+#menucolor="dimmed brown"=brown&dim
+#menucolor="yellow"=yellow
+#menucolor="dimmed yellow"=yellow&dim
+#menucolor="green"=green
+#menucolor="dimmed green"=green&dim
+#menucolor="light-green"=lightgreen
+#menucolor="dimmed light-green"=lightgreen&dim
+#menucolor="red"=red
+#menucolor="dimmed red"=red&dim
+#menucolor="orange"=orange
+#menucolor="dimmed orange"=orange&dim
+
+#eof
