@@ -2,36 +2,36 @@
 #             ---=======-----
 # Character
 # ---------
-#options=name:
-options=male
-#options=align:lawful
-#options=align:neutral
-#options=align:chaotic
-#options=race:human
-#options=race:elf
-#options=race:dwarf
-#options=race:gnome
-options=race:!orc
-#options=role:archeologist
-#options=role:barbarian
-#options=role:caveman
-#options=role:healer
-#options=role:knight
-#options=role:monk
-#options=role:priest
-#options=role:ranger
-#options=role:rogue
-#options=role:samurai
-#options=role:tourist
-#options=role:valkyrie
-#options=role:wizard
-options=fruit:mug of mead
-options=catname:Morris
-#options=dogname:Hachi
-#options=horsename:
-#options=pettype:none
-#options=blind
-#options=nudist
+#option=name:
+#option=male
+#option=align:lawful
+#option=align:neutral
+#option=align:chaotic
+#option=race:human
+#option=race:elf
+#option=race:dwarf
+#option=race:gnome
+option=race:!orc
+#option=role:archeologist
+#option=role:barbarian
+#option=role:caveman
+#option=role:healer
+#option=role:knight
+#option=role:monk
+#option=role:priest
+#option=role:ranger
+#option=role:rogue
+#option=role:samurai
+#option=role:tourist
+#option=role:valkyrie
+#option=role:wizard
+option=fruit:mug of mead
+option=catname:Morris
+#option=dogname:Hachi
+#option=horsename:
+#option=pettype:none
+#option=blind
+#option=nudist
 
 #         gain intrinsic (resistance)
 # Archeologist 1:speed,stealth 10:searching
@@ -50,17 +50,21 @@ options=catname:Morris
 
 # Gameplay
 # --------
-options=notutorial,nolegacy,notombstone
-#options=nobones
-options=number_pad:-1 #qwertz
+#options=notutorial,nolegacy,notombstone
+#option=nobones
+option=number_pad:-1 #qwertz
 bind=!:loot,v:jump
 options=autopickup,pickup_burden:unencumbered,pickup_types:$"%?+!=/(*
 
 # Interface
 # ---------
-options=showrace
-options=lit_corridor
-options=symset:Enhanced1
+option=showrace
+option=lit_corridor
+#options=windowtype:curses,windowborders:none
+option=symset:Enhanced1
+options=glyph:S_darkroom:U+00b7/50-40-30,glyph:S_room:U+00b7/100-90-80
+options=glyph:S_corr:U+0023/60-50-40,glyph:S_litcorr:U+0023/110-100-90
+options=glyph:S_hodoor:U+007c,glyph:S_vodoor:U+2212
 options=glyph:S_tlcorn:U+256d,glyph:S_trcorn:U+256e
 options=glyph:S_brcorn:U+256f,glyph:S_blcorn:U+2570
 options=glyph:S_tlcorn_sokoban:U+256d/0-0-190,glyph:S_trcorn_sokoban:U+256e/0-0-190
@@ -71,10 +75,9 @@ options=glyph:S_tlcorn_knox:U+256d/150-75-0,glyph:S_trcorn_knox:U+256e/150-75-0
 options=glyph:S_brcorn_knox:U+256f/150-75-0,glyph:S_blcorn_knox:U+2570/150-75-0
 options=glyph:S_tlcorn_mines:U+256d/113-126-142,glyph:S_trcorn_mines:U+256e/113-126-142
 options=glyph:S_brcorn_mines:U+256f/113-126-142,glyph:S_blcorn_mines:U+2570/113-126-142
-options=glyph:S_darkroom:U+00b7/50-40-30,glyph:S_room:U+00b7/100-90-80
-options=glyph:S_corr:U+0023/60-50-40,glyph:S_litcorr:U+0023/110-100-90
-options=glyph:S_hodoor:U+007c,glyph:S_vodoor:U+2212
-options=statushilites:8
+option=glyph:G_fountain:U+2320/30-144-255
+option=black
+option=statushilites:8
 options=hilite_status:hitpoints/<100%/green/<60%/yellow/<40%/red&blink
 options=hilite_status:hunger/red
 options=hilite_status:condition/major_troubles/red
@@ -252,7 +255,7 @@ autopickup_exception="<shuriken"
 autopickup_exception="<throwing star"
 autopickup_exception="<dagger"
 autopickup_exception="> cursed.*(arrow|bolt|dart|shuriken|star|ya|knife|dagger)"
-# Leave scrolls, until `scare monster` is identified.
+# No scrolls, until `scare monster` is identified.
 autopickup_exception=">scroll"
 
 # Show colors
